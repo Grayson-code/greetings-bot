@@ -21,11 +21,9 @@ let UserEvent = class UserEvent extends framework_1.Listener {
     run() {
         const app = (0, express_1.default)();
         const server = http_1.default.createServer(app);
-        const io = new socket_io_1.Server(server, {
-            cors: { origin: "*" }
-        });
-        server.listen(8080, () => {
-            console.log(chalk_1.default.green('[WS] Listening on port 8080'));
+        const io = new socket_io_1.Server(server);
+        server.listen(3000, () => {
+            console.log(chalk_1.default.green('[WS] Listening on port 3000'));
         });
         this.container.logger.info('Socket.io is running');
         io.on('connection', (socket) => {

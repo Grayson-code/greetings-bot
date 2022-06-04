@@ -12,11 +12,9 @@ export class UserEvent extends Listener {
   public run() {
     const app = express()
     const server = http.createServer(app)
-    const io = new Server(server, {
-      cors: { origin: "*" }
-    })
-    server.listen(8080, () => {
-      console.log(chalk.green('[WS] Listening on port 8080'));
+    const io = new Server(server)
+    server.listen(3000, () => {
+      console.log(chalk.green('[WS] Listening on port 3000'));
     })
     this.container.logger.info('Socket.io is running')
     io.on('connection', (socket) => {
@@ -27,7 +25,6 @@ export class UserEvent extends Listener {
         })
       })
       console.log(`A user Connected`);
-      
     })
 
   }
