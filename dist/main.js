@@ -4,6 +4,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.client = void 0;
 // Copyright (c) 2022 Northern Star
 // 
 // This software is released under the MIT License.
@@ -30,7 +31,5 @@ class Client extends framework_1.SapphireClient {
     }
     ;
 }
-const client = new Client();
-client.login(process.env.token).then(() => {
-    console.log(`Logged in~`);
-});
+exports.client = new Client();
+exports.client.login(process.env.token);

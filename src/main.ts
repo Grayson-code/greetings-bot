@@ -32,8 +32,7 @@ class Client extends SapphireClient {
     };
 }
 
-const client = new Client()
 
-client.login(process.env.token).then(() => {
-    console.log(`Logged in~`);
-})
+
+export const client = new Client()
+client.login(process.env.token)

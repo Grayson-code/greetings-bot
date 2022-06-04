@@ -6,7 +6,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReadyListener = void 0;
 const framework_1 = require("@sapphire/framework");
-const discord_js_1 = require("discord.js");
+const Buttons_1 = require("../../Buttons");
 class ReadyListener extends framework_1.Listener {
     constructor(context, options) {
         super(context, {
@@ -14,12 +14,7 @@ class ReadyListener extends framework_1.Listener {
         });
     }
     async run(member) {
-        const firstRow = new discord_js_1.MessageActionRow()
-            .addComponents(new discord_js_1.MessageButton()
-            .setCustomId('primary')
-            .setLabel('Lorem Ipsum')
-            .setStyle('PRIMARY'));
-        await member.send({ content: 'Consectetur nisi ipsum minim officia fugiat tempor cillum Lorem.', components: [firstRow] }).catch((e) => this.container.logger.error(e));
+        const message = await member.send({ content: 'Hello , welcome to this server, select your roles right now!', components: [Buttons_1.Buttons.firstRow] }).catch((e) => this.container.logger.error(e));
     }
 }
 exports.ReadyListener = ReadyListener;
