@@ -13,7 +13,7 @@ export class UserEvent extends Listener {
     const app = express()
     const server = http.createServer(app)
     const io = new Server(server)
-    server.listen(3000, () => {
+    server.listen(process.env.PORT || 3000, () => {
       console.log(chalk.green('[WS] Listening on port 3000'));
     })
     this.container.logger.info('Socket.io is running')
